@@ -207,6 +207,47 @@ Pro zápis matematických vzorců využívá Jupyter Notebook LaTeX. Abychom poc
 
 ---
 
+## 4.4 Pokročilé formátování: HTML
+
+Markdown je pro běžné psaní skvělý, ale má své limity (např. neumí měnit barvu textu nebo zarovnání). V Jupyteru můžete použít standardní **HTML tagy**.
+
+### Vizuální úpravy textu a prvků
+
+* **Změna barvy a velikosti:** Pomocí tagu `<span>` a parametru `style`:
+    ```html
+    <span style="color:red; font-size:30px;">Tento text je velký a červený.</span>
+    ```
+
+* **Zarovnání textu:** Markdown standardně zarovnává vše doleva. Pro středové zarovnání použijte:
+    ```html
+    <p style="text-align: center;">Tento text je vycentrovaný.</p>
+    ```
+
+* **Zvýraznění textu:** Když potřebujete na něco upozornit přímo uvnitř odstavce, tag `<mark>` funguje jako zvýrazňovač:
+    ```html
+    Tato část analýzy je <mark style="background-color: #ffff00">klíčová pro pochopení</mark> HTML
+    ```
+
+* **Barevné informační boxy:** K vytváření výrazných bloků se používá univerzální kontejner `<div>`:
+    ```html
+    <div style="background-color: #e3f2fd; border-left: 6px solid #2196f3; padding: 15px;"> Tady je modrý blok. </div>
+    ```
+ 
+* **Zalomení řádku:** V HTML se k odřádkování používá tag `<br>` (z anglického break):
+    ```html
+    První řádek textu. <br> Druhý řádek textu.
+    ```
+    
+* **Detaily a shrnutí**: Pro dlouhé analýzy nebo technické detaily, které by neměly hned zahltit čtenáře, je skvělý tag `<details>`. Funguje jako "rozbalovátko":
+    ```html
+    <details>
+      <summary><b>Klikněte pro zobrazení zdrojového kódu nebo metodiky</b></summary>
+      Zde může být schovaný dlouhý text, tabulka nebo další vysvětlení.
+    </details>
+    ```
+    
+---
+
 # 5. Instalace balíčků a správa vývojového prostředí
 
 Python je navržen jako modulární jazyk. Ve své základní distribuci neobsahuje nástroje pro pokročilou prostorovou analýzu, proto je nutné využít externí knihovny. Tato kapitola se věnuje metodice instalace knihovny **GeoPandas**.
