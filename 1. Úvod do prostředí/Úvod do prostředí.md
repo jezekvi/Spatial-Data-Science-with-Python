@@ -70,8 +70,6 @@ Kernel (jádro) je výpočetní engine, který spouští kód v notebooku. Je nu
 3.  Vyberte instanci označenou jako `base (conda)` nebo verzi Pythonu odpovídající vaší instalaci Anacondy.
 4.  Úspěšné propojení je signalizováno zobrazením verze Pythonu v pravém horním rohu (např. *Python 3.10.x*).
 
-
-
 ## 2.4 Verifikace funkčnosti prostředí
 Pro ověření integrity spojení mezi editorem a interpretrem proveďte test v první buňce:
 
@@ -166,6 +164,8 @@ Markdown je navržen tak, aby byl snadno čitelný i v neformátované (raw) pod
 
 * **Emojis:** V mnoha editorech fungují kódy jako `:rocket` 🚀 nebo `:smile` 😄.
 
+* **Zalomení řádku:** Pokud chcete začít na novém řádku bez vytvoření nového odstavce, vložte na konec řádku **dvě mezery**.
+
 ### Odkazy a obrázky
 * **Odkaz:** `[Název odkazu](URL_adresa)`  
 * **Obrázek:** `![Popis obrázku](URL_adresa_k_obrazku)`
@@ -197,7 +197,7 @@ Markdown je navržen tak, aby byl snadno čitelný i v neformátované (raw) pod
     print("Hello World")
     ```
 
-### 4.3 Matematická notace (LaTeX)
+## 4.2 Matematická notace (LaTeX)
 Pro zápis matematických vzorců využívá Jupyter Notebook LaTeX. Abychom pochopili, jak rovnici zapsat, podívejte se na srovnání kódu a výsledku:
 
 | Zdrojový kód (Markdown) | Výsledek (Render) |
@@ -207,7 +207,7 @@ Pro zápis matematických vzorců využívá Jupyter Notebook LaTeX. Abychom poc
 
 ---
 
-## 4.4 Pokročilé formátování: HTML
+## 4.3 Pokročilé formátování: HTML
 
 Markdown je pro běžné psaní skvělý, ale má své limity (např. neumí měnit barvu textu nebo zarovnání). V Jupyteru můžete použít standardní **HTML tagy**.
 
@@ -237,6 +237,7 @@ Markdown je pro běžné psaní skvělý, ale má své limity (např. neumí mě
     ```html
     První řádek textu. <br> Druhý řádek textu.
     ```
+    > V čistém Markdownu dosáhnete stejného výsledku vložením **dvou mezer** na konec řádku.
     
 * **Detaily a shrnutí**: Pro dlouhé analýzy nebo technické detaily, které by neměly hned zahltit čtenáře, je skvělý tag `<details>`. Funguje jako "rozbalovátko":
     ```html
@@ -271,7 +272,7 @@ Abychom tomuto chaosu předešli, používáme v buňkách notebooku tzv. **Line
 Pro práci s komplexními balíčky je **Conda** doporučeným standardem. Na rozdíl od běžných instalátorů funguje jako robustní **správce prostředí (Environment Manager)**.
 
 **Proč volit Condu pro GeoPandas?**
-Knihovna `GeoPandas` je kriticky závislá na nízkoúrovňových knihovnách psaných v C++ (zejména **GDAL**, **GEOS** a **PROJ**). Zatímco standardní `pip` vyžaduje jejich kompilaci v systému (což bývá zdrojem chyb), Conda je instaluje v již zkompilované a otestované binární podobě.
+Knihovna `GeoPandas` je závislá na nízkoúrovňových knihovnách psaných v C++ (zejména **GDAL**, **GEOS** a **PROJ**). Zatímco standardní `pip` vyžaduje jejich kompilaci v systému (což bývá zdrojem chyb), Conda je instaluje v již zkompilované a otestované binární podobě.
 
 Vložte do buňky a spusťte:
 
@@ -290,7 +291,7 @@ Vložte do buňky a spusťte:
 
 ---
 
-## 5.2 Základní koncept knihovny GeoPandas
+## 5.4 Základní koncept knihovny GeoPandas
 
 **GeoPandas** je open-source knihovna pro jazyk Python, která rozšiřuje datové struktury `Pandas` o podporu vektorových geoprostorových objektů. Umožňuje tak kombinovat klasickou tabulkovou analýzu s prostorovými operacemi.
 
@@ -306,13 +307,13 @@ GeoPandas definuje dvě základní třídy:
 ### Technologický stack
 Knihovna **Geopandas** funguje jako integrační rozhraní pro specializované nízkoúrovňové knihovny:
 
-* **Shapely:** Výpočetní geometrie (topologické operace, výpočty ploch a vzdáleností).
-* **PyProj (PROJ):** Matematické transformace mezi souřadnicovými systémy (**CRS**).
-* **GDAL (Fiona/PyOGRIO):** Čtení a zápis vektorových dat (SHP, GeoJSON, GPKG).
+* **Shapely:** Výpočetní geometrie (využívá knihovnu **GEOS**).
+* **PyProj:** Matematické transformace mezi souřadnicovými systémy (využívá knihovnu **PROJ**).
+* **Fiona/PyOGRIO:** Čtení a zápis vektorových dat (využívá knihovnu **GDAL**)
 
 ---
 
-## 5.3 První načtení a vizualizace prostorových dat
+## 5.5 První načtení a vizualizace prostorových dat
 
 ### 1. Příprava prostředí:
 ```python
