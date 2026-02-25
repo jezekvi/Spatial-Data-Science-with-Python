@@ -1,7 +1,7 @@
 # Praktické cvičení s GeoPandas
 
-Nejdříve se podíváme na oficiální dokumentaci ke GeoDataFrame:  
-[Dokumentace GeoDataFrame](https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.html)
+Nejdříve se podíváme na oficiální dokumentaci ke GeoPandas:  
+[API reference GeoPandas](https://geopandas.org/en/latest/docs/reference.html)
 
 A poté si společně vypracujeme úlohu č. 3 ze semestrální práce pro GIS 1.
 
