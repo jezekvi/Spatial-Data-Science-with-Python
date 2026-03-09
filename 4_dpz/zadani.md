@@ -1,0 +1,1 @@
+# Zpracování družicových dat Sentinel-2
